@@ -4,8 +4,8 @@
   "description": "project4",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/server/index.js",
+    "test": "jest",
+    "start": "nodemon ./src/server/server.js",
     "build-dev": "webpack-dev-server --config webpack.development.js --open",
     "build-prod": "webpack --config webpack.production.js"
   },
@@ -14,6 +14,7 @@
   "dependencies": {
     "aylien_textapi": "^0.7.0",
     "body-parser": "^1.19.0",
+    "clean-webpack-plugin": "^3.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -33,9 +34,13 @@
     "css-loader": "^3.4.0",
     "html": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "install": "^0.13.0",
+    "jest": "^24.9.0",
     "node-sass": "^4.13.0",
+    "npm": "^6.13.4",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.1.2",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "workbox-webpack-plugin": "^4.3.1"
   }
 }

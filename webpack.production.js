@@ -4,21 +4,16 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebPackPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsWebPackPlugin = require('optimize-css-assets-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 
 module.exports = {
     mode: 'production',
     entry: './src/client/index.js',
-   optimization: {
-       minimizer: [new TerserWebPackPlugin({}), new OptimizeCssAssetsWebPackPlugin({})]
-   },
-
-
-    // output: {
-    //     filename: 'bundle.js',
-    //     path: path.resolve(__dirname, './dist'),
-    //     publicPath: ''
-    // },
+    optimization: {
+        minimizer: [new TerserWebPackPlugin({}), new OptimizeCssAssetsWebPackPlugin({})]
+    },
 
     module: {
         rules: [
@@ -30,23 +25,39 @@ module.exports = {
 
             {
                 test: /\.scss$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
             },
 
-            {test: /\.hbs$/, use: 'handlebars-loader'}
+            { test: /\.hbs$/, use: 'handlebars-loader' }
 
         ]
 
     },
     plugins: [
         new HtmlWebPackPlugin({
-            title:'Natural Language Processing',
+            title: 'Natural Language Processing',
             description: 'NLP',
-            template:'./src/views/index.hbs',
+            template: './src/views/index.hbs',
             filename: './index.html',
         }),
 
-        new MiniCssExtractPlugin({filename: '[name].css'})
+        new MiniCssExtractPlugin({ filename: '[name].css' }),
+
+        new CleanWebpackPlugin({
+
+            dry: true,
+
+            verbose: true,
+
+            cleanStaleWebpackAssets: false,
+
+            protectWebpackAssets: false,
+
+
+        }),
+
+        new WorkboxPlugin.GenerateSW()
+
     ]
 
 

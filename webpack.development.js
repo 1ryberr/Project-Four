@@ -1,7 +1,7 @@
 const path = require('path');
 const wepack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -16,20 +16,35 @@ module.exports = {
 
             {
                 test: /\.scss$/,
-                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+                use: ['style-loader', 'css-loader', 'sass-loader']
             },
-            {test: /\.hbs$/, use: 'handlebars-loader'}
-			   
+            { test: /\.hbs$/, use: 'handlebars-loader' }
+
         ]
 
     },
     plugins: [
         new HtmlWebPackPlugin({
-            title:'Natural Language Processing',
+            title: 'Natural Language Processing',
             description: 'NLP',
-            template:'./src/views/index.hbs',
+            template: './src/views/index.hbs',
             filename: './index.html',
+        }),
+
+
+        new CleanWebpackPlugin({
+
+            dry: true,
+
+            verbose: true,
+
+            cleanStaleWebpackAssets: false,
+
+            protectWebpackAssets: false,
+
+
         })
+
     ]
 
 

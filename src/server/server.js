@@ -20,9 +20,8 @@ let textapi = new AYLIENTextAPI({
   application_key: `${process.env.API_KEY}`
 });
 
- console.log(`id = "${process.env.API_ID}" and key = "${process.env.API_KEY}"`)
   
-let data  = ["Saab", "Volvo", "BMW"];
+let data  = [];
 
 const getData = (req, res) => {
 
