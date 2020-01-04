@@ -16,3 +16,10 @@ footer.render();
 
 
 document.getElementById('gen').addEventListener("click", performAction);
+
+
+// if ('serviceWorker' in navigator) {
+//     window.addEventListener('load', function() {
+//       navigator.serviceWorker.register('/service-worker.js');
+//     }).then( console.log('service worker registered'));
+//   }

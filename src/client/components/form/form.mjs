@@ -5,7 +5,7 @@ import '../../styles/form.scss';
 
 
 export default class Form extends Components {
-    
+
     render() {
         super.render();
 
@@ -15,7 +15,7 @@ export default class Form extends Components {
         input1.type = 'text';
         input1.name = 'value1';
         input1.placeholder = 'Input your text here';
-    
+
         const label = document.createElement('label');
         label.innerHTML = 'Get Sentiment Analysis.'
         const label1 = document.createElement('label');
@@ -25,7 +25,7 @@ export default class Form extends Components {
         button.type = 'submit';
         button.name = 'submit';
         button.innerHTML = "submit";
-        button.setAttribute('id','gen');
+        button.setAttribute('id', 'gen');
         form.appendChild(label);
         form.append(input1);
         form.appendChild(label1);

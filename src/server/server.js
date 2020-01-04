@@ -41,7 +41,8 @@ const urls  =  req.body;
       if (error === null) {
         data.unshift(response);
         if (data.length > 5){
-          data.pop();	
+          data.pop();
+          console.log(data);	
         }
         res.status(201).json({data: data});
       }else {
